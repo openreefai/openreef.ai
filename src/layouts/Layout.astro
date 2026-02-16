@@ -216,10 +216,12 @@ const {
     transform: scale(1.1);
   }
 
-  html[data-theme='dark'] .theme-icon-light { display: none; }
-  html[data-theme='light'] .theme-icon-dark { display: none; }
-  html[data-theme='dark'] .theme-icon-dark { display: inline; }
-  html[data-theme='light'] .theme-icon-light { display: inline; }
+  /* Dark mode: show sun (click to switch to light) */
+  html[data-theme='dark'] .theme-icon-dark { display: none; }
+  html[data-theme='dark'] .theme-icon-light { display: inline; color: #f0f4ff; }
+  /* Light mode: show moon (click to switch to dark) */
+  html[data-theme='light'] .theme-icon-light { display: none; }
+  html[data-theme='light'] .theme-icon-dark { display: inline; color: #0b1220; }
 
   /* ── Stars Background ── */
   .stars {
