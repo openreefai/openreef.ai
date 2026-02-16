@@ -71,7 +71,8 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="cta-row">
-        <a href="https://github.com/openreefai" target="_blank" rel="noopener" class="btn btn-primary">GitHub</a>
+        <a href="https://tide.openreef.ai" class="btn btn-primary">Browse Formations</a>
+        <a href="https://github.com/openreefai" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
         <a href="https://discord.gg/HaNqc266rS" target="_blank" rel="noopener" class="btn btn-ghost">Discord</a>
       </div>
     </section>
@@ -289,7 +290,8 @@ import Layout from '../layouts/Layout.astro';
       <div class="card author-block">
         <p>
           Build agent teams that others can deploy. Package your formation with <code>reef pack</code>,
-          share it as a tarball or publish to the registry. Supply-chain integrity built in with
+          share it as a tarball or publish to the registry. Publish to the <a href="https://tide.openreef.ai/publish">Tide registry</a> and let anyone install your formation with one command.
+          Supply-chain integrity built in with
           <code>reef.lock.json</code> and SHA-256 digests.
         </p>
         <div class="pill-row">
@@ -317,6 +319,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="cta-row">
           <a href="https://github.com/openreefai/openreef" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub</a>
+          <a href="https://tide.openreef.ai" class="btn btn-ghost">Explore Tide Registry</a>
           <a href="https://discord.gg/HaNqc266rS" target="_blank" rel="noopener" class="btn btn-ghost">Join Discord</a>
         </div>
       </div>
@@ -326,6 +329,8 @@ import Layout from '../layouts/Layout.astro';
     <footer class="footer">
       <nav class="footer-nav">
         <a href="https://github.com/openreefai" target="_blank" rel="noopener">GitHub</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://tide.openreef.ai">Tide Registry</a>
         <span class="footer-sep">&middot;</span>
         <a href="https://discord.gg/HaNqc266rS" target="_blank" rel="noopener">Discord</a>
         <span class="footer-sep">&middot;</span>
@@ -927,6 +932,11 @@ import Layout from '../layouts/Layout.astro';
     .terminal-body {
       font-size: 0.75rem;
       overflow-x: auto;
+    }
+
+    .terminal-line {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
   }
 </style>

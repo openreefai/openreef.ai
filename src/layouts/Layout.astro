@@ -197,14 +197,20 @@ const {
     color: var(--cyan-bright);
   }
 
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--reef-bright);
+    outline-offset: 2px;
+  }
+
   /* ── Theme Toggle ── */
   .theme-toggle {
     position: fixed;
     top: 16px;
     right: 16px;
     z-index: 100;
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
     border-radius: 8px;
     border: 1px solid var(--border-subtle);
     background: var(--surface-card);
@@ -212,8 +218,13 @@ const {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 18px;
     transition: all 0.2s ease;
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--reef-bright);
+    outline-offset: 2px;
   }
 
   .theme-toggle:hover {
