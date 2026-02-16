@@ -23,10 +23,9 @@ import Layout from '../layouts/Layout.astro';
       <h1 class="hero-title">OpenReef</h1>
       <p class="hero-tagline">Agent teams as code</p>
       <p class="hero-description">
-        The open standard for multi-agent formations.
-        Define agents, wire communication, schedule tasks, and deploy to any compatible platform<span class="asterisk">*</span>. One manifest, any runtime.
+        Stop hand-wiring AI agents. Define your team in one manifest, deploy in seconds.
+        Built for <a href="https://www.openclaw.ai" target="_blank" rel="noopener">OpenClaw</a>.
       </p>
-      <p class="hero-footnote"><span class="asterisk">*</span>Starting with <a href="https://www.openclaw.ai" target="_blank" rel="noopener">OpenClaw</a></p>
     </section>
 
     <!-- ═══ Quick Start ═══ -->
@@ -108,30 +107,8 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- ═══ How It Works ═══ -->
-    <section class="section" style="animation-delay: 0.3s">
-      <h2 class="section-title">How It Works</h2>
-      <div class="steps">
-        <div class="card step">
-          <div class="step-number">1</div>
-          <h3>Define</h3>
-          <p>Declare your agents, communication topology, skills, variables, and cron jobs in a single <code>reef.json</code> manifest.</p>
-        </div>
-        <div class="card step">
-          <div class="step-number">2</div>
-          <h3>Package</h3>
-          <p>Bundle the manifest with agent personalities (<code>SOUL.md</code>), knowledge files, and config into a portable <code>.reef.tar.gz</code>.</p>
-        </div>
-        <div class="card step">
-          <div class="step-number">3</div>
-          <h3>Deploy</h3>
-          <p>Run <code>reef install</code> and the CLI provisions everything on your target platform. Agents, bindings, schedules, and all.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ═══ Featured Formation: daily-ops ═══ -->
-    <section class="section" style="animation-delay: 0.4s">
+    <section class="section" style="animation-delay: 0.3s">
       <h2 class="section-title">Featured Formation</h2>
       <div class="formation-showcase">
         <div class="formation-header">
@@ -190,6 +167,28 @@ import Layout from '../layouts/Layout.astro';
               <span class="terminal-cmd">    --var BUSINESS_NAME="Lovelace Labs"</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ How It Works ═══ -->
+    <section class="section" style="animation-delay: 0.4s">
+      <h2 class="section-title">How It Works</h2>
+      <div class="steps">
+        <div class="card step">
+          <div class="step-number">1</div>
+          <h3>Define</h3>
+          <p>Declare your agents, communication topology, skills, variables, and cron jobs in a single <code>reef.json</code> manifest.</p>
+        </div>
+        <div class="card step">
+          <div class="step-number">2</div>
+          <h3>Package</h3>
+          <p>Bundle the manifest with agent personalities (<code>SOUL.md</code>), knowledge files, and config into a portable <code>.reef.tar.gz</code>.</p>
+        </div>
+        <div class="card step">
+          <div class="step-number">3</div>
+          <h3>Deploy</h3>
+          <p>Run <code>reef install</code> and the CLI provisions everything on your target platform. Agents, bindings, schedules, and all.</p>
         </div>
       </div>
     </section>
@@ -300,6 +299,25 @@ import Layout from '../layouts/Layout.astro';
           <span class="pill">JSON + Markdown Only</span>
           <span class="pill">Pre-install Audit</span>
           <span class="pill">SHA-256 Integrity</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Get Started CTA ═══ -->
+    <section class="section" style="animation-delay: 0.9s">
+      <div class="card cta-block">
+        <h2 class="section-title" style="margin-bottom: 12px;">Get Started</h2>
+        <div class="terminal terminal-sm" style="margin-bottom: 20px;">
+          <div class="terminal-body">
+            <div class="terminal-line">
+              <span class="terminal-prompt">$</span>
+              <span class="terminal-cmd">npm install -g @openreef/cli</span>
+            </div>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a href="https://github.com/openreefai/openreef" target="_blank" rel="noopener" class="btn btn-primary">View on GitHub</a>
+          <a href="https://discord.gg/HaNqc266rS" target="_blank" rel="noopener" class="btn btn-ghost">Join Discord</a>
         </div>
       </div>
     </section>
@@ -815,6 +833,17 @@ import Layout from '../layouts/Layout.astro';
     border: 1px solid var(--border-subtle);
     background: var(--bg-elevated);
     color: var(--text-muted);
+  }
+
+  /* ── CTA Block ── */
+  .cta-block {
+    text-align: center;
+    border-color: var(--border-accent);
+  }
+
+  .cta-block .terminal-sm {
+    max-width: 400px;
+    margin: 0 auto 20px;
   }
 
   /* ── Footer ── */
