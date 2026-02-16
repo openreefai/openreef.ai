@@ -83,6 +83,45 @@ const {
         localStorage.setItem('reef-theme', next);
       });
     </script>
+
+    <!-- Scroll-triggered animations -->
+    <script is:inline>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.section').forEach(function(s) { s.classList.add('visible'); });
+        document.querySelectorAll('.terminal-reveal').forEach(function(t) { t.classList.add('terminal-animate'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(entry.target.classList.contains('terminal-reveal') ? 'terminal-animate' : 'visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.section').forEach(function(s) { observer.observe(s); });
+      document.querySelectorAll('.terminal-reveal').forEach(function(t) { observer.observe(t); });
+    })();
+    </script>
+
+    <!-- Clipboard copy for terminal blocks -->
+    <script is:inline>
+    (function () {
+      document.querySelectorAll('.terminal-copy-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var terminal = btn.closest('.terminal');
+          if (!terminal) return;
+          var lines = terminal.querySelectorAll('.terminal-cmd');
+          var text = Array.from(lines).map(function (l) { return l.textContent.trim(); }).join('\n');
+          navigator.clipboard.writeText(text).then(function () {
+            btn.textContent = 'Copied!';
+            setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+          });
+        });
+      });
+    })();
+    </script>
   </body>
 </html>
 
@@ -239,14 +278,31 @@ const {
   html[data-theme='light'] .theme-icon-light { display: none; }
   html[data-theme='light'] .theme-icon-dark { display: inline; color: #0f172a; }
 
+  /* ── Dot Grid Pattern ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(59, 125, 255, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  html[data-theme='light'] body::before {
+    background-image: radial-gradient(rgba(59, 125, 255, 0.03) 1px, transparent 1px);
+  }
+
   /* ── Background Gradient Blobs ── */
   .bg-gradient {
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(600px circle at 15% 15%, rgba(59, 125, 255, 0.08), transparent),
-      radial-gradient(500px circle at 85% 20%, rgba(0, 229, 204, 0.05), transparent),
-      radial-gradient(700px circle at 60% 80%, rgba(255, 111, 97, 0.04), transparent);
+      radial-gradient(600px circle at 15% 15%, rgba(59, 125, 255, 0.12), transparent),
+      radial-gradient(500px circle at 85% 20%, rgba(0, 229, 204, 0.10), transparent),
+      radial-gradient(700px circle at 60% 80%, rgba(255, 111, 97, 0.08), transparent),
+      radial-gradient(400px circle at 40% 50%, rgba(0, 229, 204, 0.05), transparent),
+      radial-gradient(500px circle at 75% 65%, rgba(59, 125, 255, 0.06), transparent);
     pointer-events: none;
     z-index: 0;
   }

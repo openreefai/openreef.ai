@@ -7,6 +7,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- ═══ Hero ═══ -->
     <section class="hero">
       <div class="hero-icon">
+        <div class="hero-glow"></div>
         <svg viewBox="0 0 100 100" class="reef-logo" aria-hidden="true">
           <defs>
             <linearGradient id="reef-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -29,56 +30,57 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- ═══ Quick Start ═══ -->
-    <section class="section" id="quick-start" style="animation-delay: 0.1s">
+    <section class="section" id="quick-start">
       <h2 class="section-title">Quick Start</h2>
 
-      <div class="terminal">
+      <div class="terminal terminal-reveal">
         <div class="terminal-header">
           <span class="terminal-label">terminal</span>
+          <button class="terminal-copy-btn" aria-label="Copy terminal commands">Copy</button>
         </div>
         <div class="terminal-body">
-          <div class="terminal-line">
+          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.1s">
             <span class="terminal-comment"># Install the CLI</span>
           </div>
-          <div class="terminal-line">
+          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.2s">
             <span class="terminal-prompt">$</span>
             <span class="terminal-cmd">npm install -g @openreef/cli</span>
           </div>
           <div class="terminal-spacer"></div>
-          <div class="terminal-line">
+          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.35s">
             <span class="terminal-comment"># Scaffold a new formation</span>
           </div>
-          <div class="terminal-line">
+          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.45s">
             <span class="terminal-prompt">$</span>
             <span class="terminal-cmd">reef init my-team</span>
           </div>
           <div class="terminal-spacer"></div>
-          <div class="terminal-line">
+          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.6s">
             <span class="terminal-comment"># Validate and deploy</span>
           </div>
-          <div class="terminal-line">
+          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.7s">
             <span class="terminal-prompt">$</span>
             <span class="terminal-cmd">reef validate ./my-team</span>
           </div>
-          <div class="terminal-line">
+          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.8s">
             <span class="terminal-prompt">$</span>
             <span class="terminal-cmd">reef install ./my-team</span>
           </div>
-          <div class="terminal-output">
+          <div class="terminal-output terminal-reveal-line" style="transition-delay: 0.95s">
             <span class="terminal-success">✓ Formation "my-team" deployed successfully</span>
           </div>
         </div>
       </div>
 
       <div class="cta-row">
-        <a href="https://tide.openreef.ai" class="btn btn-primary">Browse Formations</a>
+        <a href="https://tide.openreef.ai" class="btn btn-coral">Browse Formations</a>
         <a href="https://github.com/openreefai" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
         <a href="https://discord.gg/HaNqc266rS" target="_blank" rel="noopener" class="btn btn-ghost">Discord</a>
       </div>
     </section>
 
     <!-- ═══ What It Does ═══ -->
-    <section class="section" style="animation-delay: 0.2s">
+    <section class="section">
       <h2 class="section-title">What It Does</h2>
       <div class="comparison">
         <div class="card comparison-before">
@@ -108,8 +110,10 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- ═══ Featured Formation: daily-ops ═══ -->
-    <section class="section" style="animation-delay: 0.3s">
+    <section class="section section-featured">
       <h2 class="section-title">Featured Formation</h2>
       <div class="formation-showcase">
         <div class="formation-header">
@@ -126,29 +130,29 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="agent-topology">
           <div class="agent-node agent-hub">
-            <div class="agent-icon">&#9878;</div>
+            <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.64 5.64l4.24 4.24M14.12 14.12l4.24 4.24M5.64 18.36l4.24-4.24M14.12 9.88l4.24-4.24"/></svg></div>
             <span>Chief of Staff</span>
             <small>Orchestrator</small>
           </div>
           <div class="topology-connector"></div>
           <div class="agent-spokes">
             <div class="agent-node">
-              <div class="agent-icon">&#9993;</div>
+              <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7L12 13 2 7"/></svg></div>
               <span>Inbox Manager</span>
               <small>Every 5min</small>
             </div>
             <div class="agent-node">
-              <div class="agent-icon">&#128269;</div>
+              <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
               <span>Research Analyst</span>
               <small>On demand</small>
             </div>
             <div class="agent-node">
-              <div class="agent-icon">&#9998;</div>
+              <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></div>
               <span>Content Writer</span>
               <small>Daily + on demand</small>
             </div>
             <div class="agent-node">
-              <div class="agent-icon">&#9730;</div>
+              <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
               <span>Daily Briefing</span>
               <small>7am daily</small>
             </div>
@@ -173,7 +177,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- ═══ How It Works ═══ -->
-    <section class="section" style="animation-delay: 0.4s">
+    <section class="section">
       <h2 class="section-title">How It Works</h2>
       <div class="steps">
         <div class="card step">
@@ -194,8 +198,10 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- ═══ What's In a Formation ═══ -->
-    <section class="section" style="animation-delay: 0.5s">
+    <section class="section">
       <h2 class="section-title">What's In a Formation</h2>
       <div class="features-grid">
         <div class="card">
@@ -226,7 +232,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- ═══ CLI Commands ═══ -->
-    <section class="section" style="animation-delay: 0.6s">
+    <section class="section">
       <h2 class="section-title">CLI Commands</h2>
       <div class="cli-grid">
         <div class="card cli-card">
@@ -263,7 +269,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- ═══ Formation Types ═══ -->
-    <section class="section" style="animation-delay: 0.7s">
+    <section class="section">
       <h2 class="section-title">Scale Your Way</h2>
       <div class="types-grid">
         <div class="card type-card">
@@ -284,8 +290,10 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- ═══ Build & Share ═══ -->
-    <section class="section" style="animation-delay: 0.8s">
+    <section class="section">
       <h2 class="section-title">Build &amp; Share</h2>
       <div class="card author-block">
         <p>
@@ -306,7 +314,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- ═══ Get Started CTA ═══ -->
-    <section class="section" style="animation-delay: 0.9s">
+    <section class="section">
       <div class="card cta-block">
         <h2 class="section-title" style="margin-bottom: 12px;">Get Started</h2>
         <div class="terminal terminal-sm" style="margin-bottom: 20px;">
@@ -349,9 +357,9 @@ import Layout from '../layouts/Layout.astro';
   .container {
     position: relative;
     z-index: 1;
-    max-width: 960px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 48px 24px 40px;
+    padding: 48px 28px 40px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -359,8 +367,15 @@ import Layout from '../layouts/Layout.astro';
 
   /* ── Sections ── */
   .section {
-    margin-bottom: 72px;
-    animation: fadeInUp 0.4s ease-out both;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .section-title {
@@ -371,18 +386,27 @@ import Layout from '../layouts/Layout.astro';
     letter-spacing: -0.02em;
   }
 
+  .section-divider {
+    width: 120px;
+    height: 1px;
+    margin: 0 auto 80px;
+    background: linear-gradient(90deg, transparent, var(--reef-bright), var(--cyan-bright), transparent);
+    opacity: 0.4;
+  }
+
   /* ── Shared Card ── */
   .card {
     padding: 24px;
     border-radius: 12px;
     border: 1px solid var(--border-subtle);
     background: var(--surface-card);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   }
 
   .card:hover {
     border-color: var(--border-accent);
-    box-shadow: 0 0 0 1px var(--border-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px var(--shadow-reef);
   }
 
   .card h3 {
@@ -430,19 +454,40 @@ import Layout from '../layouts/Layout.astro';
   /* ── Hero ── */
   .hero {
     text-align: center;
-    padding: 32px 0 40px;
+    padding: 72px 0 56px;
     animation: fadeInUp 0.4s ease-out both;
   }
 
   .hero-icon {
     margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59, 125, 255, 0.15) 0%, rgba(0, 229, 204, 0.08) 50%, transparent 70%);
+    pointer-events: none;
+    animation: heroGlowPulse 6s ease-in-out infinite;
+  }
+
+  @keyframes heroGlowPulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
   }
 
   .reef-logo {
-    width: 80px;
-    height: 80px;
+    width: 140px;
+    height: 140px;
     filter: drop-shadow(0 0 24px var(--shadow-reef));
     animation: glow 4s ease-in-out infinite;
+    position: relative;
   }
 
   @keyframes glow {
@@ -459,12 +504,15 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .hero-tagline {
-    font-family: var(--font-body);
-    font-size: 1rem;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: var(--reef-bright);
+    background: linear-gradient(90deg, var(--reef-bright), var(--cyan-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-top: 4px;
   }
 
@@ -472,7 +520,7 @@ import Layout from '../layouts/Layout.astro';
     font-size: 1.05rem;
     color: var(--text-secondary);
     line-height: 1.7;
-    max-width: 540px;
+    max-width: 580px;
     margin: 16px auto 0;
   }
 
@@ -561,6 +609,42 @@ import Layout from '../layouts/Layout.astro';
     color: var(--cyan-bright);
   }
 
+  /* Terminal reveal animation */
+  .terminal-reveal-line {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  .terminal-animate .terminal-reveal-line {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Terminal copy button */
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .terminal-copy-btn {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 2px 8px;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .terminal-copy-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--reef-bright);
+  }
+
   /* ── CTA Row ── */
   .cta-row {
     display: flex;
@@ -596,6 +680,17 @@ import Layout from '../layouts/Layout.astro';
     background: transparent;
     color: var(--text-primary);
     border: 1px solid var(--border-subtle);
+  }
+
+  .btn-coral {
+    background: var(--coral-bright);
+    color: #fff;
+    border: none;
+  }
+
+  .btn-coral:hover {
+    background: var(--coral-mid);
+    color: #fff;
   }
 
   .btn-ghost:hover {
@@ -682,8 +777,10 @@ import Layout from '../layouts/Layout.astro';
   .formation-showcase {
     padding: 32px;
     border-radius: 12px;
-    border: 1px solid var(--border-accent);
-    background: var(--surface-card);
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+      linear-gradient(135deg, var(--reef-bright), var(--cyan-bright), var(--coral-bright)) border-box;
   }
 
   .formation-header {
@@ -729,7 +826,13 @@ import Layout from '../layouts/Layout.astro';
   .topology-connector {
     width: 2px;
     height: 20px;
-    background: var(--border-subtle);
+    background: linear-gradient(to bottom, var(--reef-bright), var(--cyan-bright));
+    animation: connectorPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes connectorPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
   }
 
   .agent-spokes {
@@ -737,7 +840,8 @@ import Layout from '../layouts/Layout.astro';
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     width: 100%;
-    border-top: 2px solid var(--border-subtle);
+    border-top: 2px solid transparent;
+    border-image: linear-gradient(90deg, var(--reef-bright), var(--cyan-bright)) 1;
     padding-top: 16px;
   }
 
@@ -751,11 +855,23 @@ import Layout from '../layouts/Layout.astro';
     border: 1px solid var(--border-subtle);
     background: var(--bg-elevated);
     text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .agent-node:hover {
+    transform: translateY(-2px);
+    border-color: var(--reef-bright);
+    box-shadow: 0 4px 16px var(--shadow-reef);
   }
 
   .agent-icon {
     font-size: 1.3rem;
     margin-bottom: 2px;
+    color: var(--reef-bright);
+  }
+
+  .agent-hub .agent-icon {
+    color: var(--cyan-bright);
   }
 
   .agent-node span {
@@ -816,7 +932,31 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .type-featured {
-    border-color: var(--border-accent);
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+      linear-gradient(135deg, var(--reef-bright), var(--coral-bright)) border-box;
+  }
+
+  /* ── Section Featured Background ── */
+  .section-featured {
+    position: relative;
+  }
+  .section-featured::before {
+    content: '';
+    position: absolute;
+    inset: -40px -40px;
+    background: radial-gradient(ellipse at center, rgba(59, 125, 255, 0.04), transparent 70%);
+    border-radius: 24px;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @media (min-width: 641px) {
+    .formation-showcase {
+      margin-left: -40px;
+      margin-right: -40px;
+    }
   }
 
   /* ── Author Block ── */
