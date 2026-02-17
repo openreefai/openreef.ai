@@ -122,6 +122,24 @@ const {
       });
     })();
     </script>
+
+    <!-- Clipboard copy for bot card prompt -->
+    <script is:inline>
+    (function () {
+      document.querySelectorAll('.bot-card-copy').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var prompt = btn.closest('.bot-card-prompt');
+          if (!prompt) return;
+          var code = prompt.querySelector('code');
+          if (!code) return;
+          navigator.clipboard.writeText(code.textContent.trim()).then(function () {
+            btn.textContent = 'Copied!';
+            setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+          });
+        });
+      });
+    })();
+    </script>
   </body>
 </html>
 

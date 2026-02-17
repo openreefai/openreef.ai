@@ -6,27 +6,74 @@ import Layout from '../layouts/Layout.astro';
   <main class="container">
     <!-- ═══ Hero ═══ -->
     <section class="hero">
-      <div class="hero-icon">
-        <div class="hero-glow"></div>
-        <svg viewBox="0 0 100 100" class="reef-logo" aria-hidden="true">
-          <defs>
-            <linearGradient id="reef-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#3b7dff" />
-              <stop offset="50%" style="stop-color:#00e5cc" />
-              <stop offset="100%" style="stop-color:#ff6f61" />
-            </linearGradient>
-          </defs>
-          <path d="M50 85 L50 55 M50 55 L35 35 M50 55 L65 35 M35 35 L25 18 M35 35 L42 20 M65 35 L58 20 M65 35 L75 18 M50 55 L50 30 M50 30 L43 15 M50 30 L57 15" stroke="url(#reef-grad)" stroke-width="4" stroke-linecap="round" fill="none" />
-          <ellipse cx="50" cy="88" rx="18" ry="4" fill="url(#reef-grad)" opacity="0.3" />
-        </svg>
-      </div>
+      <div class="hero-columns">
+        <div class="hero-left">
+          <div class="hero-icon">
+            <div class="hero-glow"></div>
+            <svg viewBox="0 0 100 100" class="reef-logo" aria-hidden="true">
+              <defs>
+                <linearGradient id="reef-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#3b7dff" />
+                  <stop offset="50%" style="stop-color:#00e5cc" />
+                  <stop offset="100%" style="stop-color:#ff6f61" />
+                </linearGradient>
+              </defs>
+              <path d="M50 85 L50 55 M50 55 L35 35 M50 55 L65 35 M35 35 L25 18 M35 35 L42 20 M65 35 L58 20 M65 35 L75 18 M50 55 L50 30 M50 30 L43 15 M50 30 L57 15" stroke="url(#reef-grad)" stroke-width="4" stroke-linecap="round" fill="none" />
+              <ellipse cx="50" cy="88" rx="18" ry="4" fill="url(#reef-grad)" opacity="0.3" />
+            </svg>
+          </div>
+          <h1 class="hero-title">OpenReef</h1>
+          <p class="hero-tagline">Agent teams as code</p>
+          <p class="hero-description">
+            One manifest defines your agents, their personalities, communication topology, and schedules.
+            One command deploys them. The package manager for multi-agent systems.
+          </p>
+          <div class="hero-cta-row">
+            <a href="https://tide.openreef.ai" class="btn btn-coral">Browse Formations</a>
+            <a href="https://github.com/openreefai" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+          </div>
+        </div>
 
-      <h1 class="hero-title">OpenReef</h1>
-      <p class="hero-tagline">Agent teams as code</p>
-      <p class="hero-description">
-        Stop hand-wiring AI agents. Define your team in one manifest, deploy in seconds.
-        One format, any runtime. Ships today with <a href="https://www.openclaw.ai" target="_blank" rel="noopener">OpenClaw</a> support.
-      </p>
+        <div class="hero-right">
+          <div class="hero-bot-card">
+            <div class="bot-card-header">
+              <span class="bot-card-label">Your AI assistant</span>
+              <span class="bot-card-dot"></span>
+            </div>
+            <div class="bot-card-body">
+              <p class="bot-card-intro">Send your bot one line to get started:</p>
+              <div class="bot-card-prompt">
+                <code>Read https://www.openreef.ai/skill.md</code>
+                <button class="bot-card-copy" aria-label="Copy prompt">Copy</button>
+              </div>
+              <div class="bot-card-result">
+                <p class="bot-card-result-label">It will know how to:</p>
+                <div class="bot-card-routes">
+                  <div class="bot-card-route">
+                    <span class="route-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                    </span>
+                    <span>Search formations</span>
+                  </div>
+                  <div class="bot-card-route">
+                    <span class="route-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </span>
+                    <span>Install &amp; deploy</span>
+                  </div>
+                  <div class="bot-card-route">
+                    <span class="route-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                    </span>
+                    <span>Create new formations</span>
+                  </div>
+                </div>
+              </div>
+              <p class="bot-card-footnote">Deterministic routing. No guessing. No unnecessary auth prompts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ Quick Start ═══ -->
@@ -72,11 +119,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
-      <div class="cta-row">
-        <a href="https://tide.openreef.ai" class="btn btn-coral">Browse Formations</a>
-        <a href="https://github.com/openreefai" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
-        <a href="https://discord.gg/HaNqc266rS" target="_blank" rel="noopener" class="btn btn-ghost">Discord</a>
-      </div>
     </section>
 
     <!-- ═══ What It Does ═══ -->
@@ -453,13 +495,23 @@ import Layout from '../layouts/Layout.astro';
 
   /* ── Hero ── */
   .hero {
-    text-align: center;
     padding: 72px 0 56px;
     animation: fadeInUp 0.4s ease-out both;
   }
 
+  .hero-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-left {
+    text-align: left;
+  }
+
   .hero-icon {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     position: relative;
     display: inline-block;
   }
@@ -469,8 +521,8 @@ import Layout from '../layouts/Layout.astro';
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 280px;
-    height: 280px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(59, 125, 255, 0.15) 0%, rgba(0, 229, 204, 0.08) 50%, transparent 70%);
     pointer-events: none;
@@ -483,8 +535,8 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .reef-logo {
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
     filter: drop-shadow(0 0 24px var(--shadow-reef));
     animation: glow 4s ease-in-out infinite;
     position: relative;
@@ -497,7 +549,7 @@ import Layout from '../layouts/Layout.astro';
 
   .hero-title {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
     font-weight: 800;
     letter-spacing: -0.03em;
     color: var(--text-primary);
@@ -505,7 +557,7 @@ import Layout from '../layouts/Layout.astro';
 
   .hero-tagline {
     font-family: var(--font-display);
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -517,31 +569,151 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .hero-description {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     line-height: 1.7;
-    max-width: 580px;
-    margin: 16px auto 0;
+    max-width: 480px;
+    margin: 16px 0 0;
   }
 
-  .hero-footnote {
+  .hero-cta-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  /* ── Bot Card ── */
+  .hero-bot-card {
+    border-radius: 12px;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+      linear-gradient(135deg, var(--reef-bright), var(--cyan-bright)) border-box;
+    overflow: hidden;
+  }
+
+  .bot-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .bot-card-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .bot-card-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--cyan-bright);
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes dotPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; box-shadow: 0 0 8px var(--cyan-bright); }
+  }
+
+  .bot-card-body {
+    padding: 20px;
+  }
+
+  .bot-card-intro {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+  }
+
+  .bot-card-prompt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-deep);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+  }
+
+  .bot-card-prompt code {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--cyan-bright);
+    flex: 1;
+    word-break: break-all;
+  }
+
+  .bot-card-copy {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 3px 10px;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .bot-card-copy:hover {
+    color: var(--text-primary);
+    border-color: var(--reef-bright);
+  }
+
+  .bot-card-result-label {
     font-size: 0.8rem;
     color: var(--text-muted);
-    margin-top: 8px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
   }
 
-  .hero-footnote a {
+  .bot-card-routes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .bot-card-route {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    transition: border-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .bot-card-route:hover {
+    border-color: var(--reef-bright);
+    transform: translateX(4px);
+  }
+
+  .route-icon {
+    color: var(--reef-bright);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .bot-card-footnote {
+    font-size: 0.75rem;
     color: var(--text-muted);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .hero-footnote a:hover {
-    color: var(--reef-bright);
-  }
-
-  .asterisk {
-    color: var(--reef-bright);
+    font-style: italic;
   }
 
   /* ── Terminal ── */
@@ -1021,6 +1193,25 @@ import Layout from '../layouts/Layout.astro';
   }
 
   /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .hero-columns {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .hero-left {
+      text-align: center;
+    }
+
+    .hero-description {
+      margin: 16px auto 0;
+    }
+
+    .hero-cta-row {
+      justify-content: center;
+    }
+  }
+
   @media (max-width: 640px) {
     .container {
       padding: 32px 16px 32px;
