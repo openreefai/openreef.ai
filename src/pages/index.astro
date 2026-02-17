@@ -31,6 +31,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="hero-cta-row">
             <a href="https://tide.openreef.ai" class="btn btn-coral">Browse Formations</a>
             <a href="https://github.com/openreefai" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+            <a href="https://discord.gg/HaNqc266rS" target="_blank" rel="noopener" class="btn btn-ghost">Discord</a>
           </div>
         </div>
 
@@ -164,20 +165,23 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="section-divider"></div>
 
-    <!-- ═══ Featured Formation: daily-ops ═══ -->
+    <!-- ═══ Formations in Action ═══ -->
     <section class="section section-featured">
-      <h2 class="section-title">Featured Formation</h2>
+      <h2 class="section-title">Formations in Action</h2>
+
+      <!-- daily-ops -->
       <div class="formation-showcase">
         <div class="formation-header">
           <span class="badge">shoal</span>
           <h3>daily-ops</h3>
+          <span class="formation-version">v0.4.0</span>
         </div>
-        <p class="formation-subtitle">Founder's Daily Operations Squad</p>
+        <p class="formation-subtitle">Daily Operations Squad — 5 agents, Anthropic + Google AI</p>
 
         <p class="formation-description">
-          A 5-agent team that handles your daily operations. Email triage every 5 minutes.
+          A team that runs your daily operations. Email triage every 5 minutes.
           Morning briefing at 7am. Research on demand. Content drafts in your voice.
-          You focus on strategy. Your agents handle the rest.
+          You talk to the Chief of Staff — it coordinates the rest.
         </p>
 
         <div class="agent-topology">
@@ -201,7 +205,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="agent-node">
               <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></div>
               <span>Content Writer</span>
-              <small>Daily + on demand</small>
+              <small>8am + on demand</small>
             </div>
             <div class="agent-node">
               <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
@@ -211,17 +215,90 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
+        <div class="install-modes">
+          <div class="install-mode">
+            <span class="cli-path-label">Interactive — CLI prompts for variables</span>
+            <div class="terminal terminal-sm">
+              <div class="terminal-body">
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd">reef install daily-ops</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="install-mode">
+            <span class="cli-path-label">Non-interactive — pre-set everything</span>
+            <div class="terminal terminal-sm">
+              <div class="terminal-body">
+                <div class="terminal-line">
+                  <span class="terminal-prompt">$</span>
+                  <span class="terminal-cmd">reef install daily-ops \</span>
+                </div>
+                <div class="terminal-line">
+                  <span class="terminal-cmd">    --set USER_NAME="Ada" \</span>
+                </div>
+                <div class="terminal-line">
+                  <span class="terminal-cmd">    --set BUSINESS_NAME="Lovelace Labs" \</span>
+                </div>
+                <div class="terminal-line">
+                  <span class="terminal-cmd">    --set INTERACTION_CHANNEL=slack:#ops --yes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- reef-forge -->
+      <div class="formation-showcase formation-showcase-coral">
+        <div class="formation-header">
+          <span class="badge badge-coral">shoal</span>
+          <h3>reef-forge</h3>
+          <span class="formation-version">v0.2.0</span>
+        </div>
+        <p class="formation-subtitle">The formation that builds formations — 5 agents, Anthropic + OpenAI</p>
+
+        <p class="formation-description">
+          Describe the agent team you need. reef-forge's Architect coordinates four specialists
+          through a structured workflow: research, SOUL writing, scaffolding, and adversarial QA.
+          The QA agent runs on a different vendor model (OpenAI) for cognitive diversity.
+          You get a production-ready formation.
+        </p>
+
+        <div class="forge-agents">
+          <div class="forge-agent">
+            <span class="forge-agent-role">Coordinator</span>
+            <span class="forge-agent-name">Architect</span>
+            <small>Your single point of contact. Decomposes requests, routes work, mediates disputes.</small>
+          </div>
+          <div class="forge-agent">
+            <span class="forge-agent-role">Researcher</span>
+            <span class="forge-agent-name">Researcher</span>
+            <small>Deep domain research. Clones ecosystem repos. Browses ClawHub for existing skills.</small>
+          </div>
+          <div class="forge-agent">
+            <span class="forge-agent-role">Writer</span>
+            <span class="forge-agent-name">Soul Writer</span>
+            <small>Writes SOUL.md and IDENTITY.md files. Authors knowledge and reference material.</small>
+          </div>
+          <div class="forge-agent">
+            <span class="forge-agent-role">Builder</span>
+            <span class="forge-agent-name">Builder</span>
+            <small>Scaffolds the complete file tree. Writes reef.json, README, .env.example.</small>
+          </div>
+          <div class="forge-agent forge-agent-alt">
+            <span class="forge-agent-role">QA · OpenAI</span>
+            <span class="forge-agent-name">QA</span>
+            <small>Adversarial reviewer on a different vendor model for cognitive diversity.</small>
+          </div>
+        </div>
+
         <div class="terminal terminal-sm">
           <div class="terminal-body">
             <div class="terminal-line">
               <span class="terminal-prompt">$</span>
-              <span class="terminal-cmd">reef install daily-ops \</span>
-            </div>
-            <div class="terminal-line">
-              <span class="terminal-cmd">    --var FOUNDER_NAME="Ada" \</span>
-            </div>
-            <div class="terminal-line">
-              <span class="terminal-cmd">    --var BUSINESS_NAME="Lovelace Labs"</span>
+              <span class="terminal-cmd">reef install reef-forge --set INTERACTION_CHANNEL=slack:#forge</span>
             </div>
           </div>
         </div>
@@ -278,7 +355,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="card">
           <h3>Variables</h3>
-          <p>Typed, validated configuration. Sensitive values never stored in plaintext. <code>&#123;&#123;FOUNDER_NAME&#125;&#125;</code> interpolates everywhere.</p>
+          <p>Typed, validated configuration. Sensitive values never stored in plaintext. <code>&#123;&#123;USER_NAME&#125;&#125;</code> interpolates everywhere.</p>
         </div>
       </div>
     </section>
@@ -1042,6 +1119,79 @@ import Layout from '../layouts/Layout.astro';
     margin-bottom: 28px;
   }
 
+  .formation-version {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .formation-showcase-coral {
+    margin-top: 24px;
+    background:
+      linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+      linear-gradient(135deg, var(--coral-bright), var(--reef-bright)) border-box;
+  }
+
+  .badge-coral {
+    background: var(--coral-bright);
+  }
+
+  .install-modes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .install-mode .terminal-sm {
+    margin: 0;
+  }
+
+  /* ── Forge Agent List ── */
+  .forge-agents {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .forge-agent {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-elevated);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .forge-agent-role {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--reef-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .forge-agent-name {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .forge-agent small {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  .forge-agent-alt {
+    border-color: var(--coral-bright);
+  }
+
+  .forge-agent-alt .forge-agent-role {
+    color: var(--coral-bright);
+  }
+
   /* ── Agent Topology ── */
   .agent-topology {
     display: flex;
@@ -1304,6 +1454,14 @@ import Layout from '../layouts/Layout.astro';
     .agent-spokes {
       grid-template-columns: repeat(2, 1fr);
     }
+
+    .install-modes {
+      grid-template-columns: 1fr;
+    }
+
+    .forge-agents {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   @media (max-width: 480px) {
@@ -1318,6 +1476,10 @@ import Layout from '../layouts/Layout.astro';
     .cta-row {
       flex-direction: column;
       align-items: center;
+    }
+
+    .forge-agents {
+      grid-template-columns: 1fr;
     }
 
     .terminal {
