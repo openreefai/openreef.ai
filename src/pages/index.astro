@@ -168,56 +168,66 @@ import Layout from '../layouts/Layout.astro';
     <!-- ═══ Formations in Action ═══ -->
     <section class="section section-featured">
       <h2 class="section-title">Formations in Action</h2>
+      <p class="section-subtitle">Two real formations. Different architectures. Same install experience.</p>
 
-      <!-- daily-ops -->
-      <div class="formation-showcase">
-        <div class="formation-header">
-          <span class="badge">shoal</span>
-          <h3>daily-ops</h3>
-          <span class="formation-version">v0.4.0</span>
-        </div>
-        <p class="formation-subtitle">Daily Operations Squad — 5 agents, Anthropic + Google AI</p>
-
-        <p class="formation-description">
-          A team that runs your daily operations. Email triage every 5 minutes.
-          Morning briefing at 7am. Research on demand. Content drafts in your voice.
-          You talk to the Chief of Staff — it coordinates the rest.
-        </p>
-
-        <div class="agent-topology">
-          <div class="agent-node agent-hub">
-            <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.64 5.64l4.24 4.24M14.12 14.12l4.24 4.24M5.64 18.36l4.24-4.24M14.12 9.88l4.24-4.24"/></svg></div>
-            <span>Chief of Staff</span>
-            <small>Orchestrator</small>
+      <div class="formations-diptych">
+        <!-- daily-ops -->
+        <div class="diptych-card diptych-blue">
+          <div class="diptych-header">
+            <div class="diptych-meta">
+              <span class="badge">shoal</span>
+              <span class="diptych-version">v0.4.0</span>
+            </div>
+            <h3 class="diptych-name">daily-ops</h3>
+            <p class="diptych-tagline">Daily Operations Squad</p>
           </div>
-          <div class="topology-connector"></div>
-          <div class="agent-spokes">
-            <div class="agent-node">
-              <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7L12 13 2 7"/></svg></div>
-              <span>Inbox Manager</span>
-              <small>Every 5min</small>
-            </div>
-            <div class="agent-node">
-              <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
-              <span>Research Analyst</span>
-              <small>On demand</small>
-            </div>
-            <div class="agent-node">
-              <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg></div>
-              <span>Content Writer</span>
-              <small>8am + on demand</small>
-            </div>
-            <div class="agent-node">
-              <div class="agent-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-              <span>Daily Briefing</span>
-              <small>7am daily</small>
-            </div>
-          </div>
-        </div>
 
-        <div class="install-modes">
-          <div class="install-mode">
-            <span class="cli-path-label">Interactive — CLI prompts for variables</span>
+          <p class="diptych-desc">
+            5 agents handle your daily operations. Email triage every 5 minutes.
+            Morning briefing at 7am. Research and content on demand.
+            You talk to the Chief of Staff — it coordinates the rest.
+          </p>
+
+          <!-- Hub-and-spoke SVG topology -->
+          <div class="diptych-topology">
+            <svg viewBox="0 0 320 200" class="topo-svg" aria-label="daily-ops hub-and-spoke topology">
+              <!-- Spokes (lines from hub to agents) -->
+              <line x1="160" y1="52" x2="60" y2="155" class="topo-edge" />
+              <line x1="160" y1="52" x2="120" y2="170" class="topo-edge" />
+              <line x1="160" y1="52" x2="200" y2="170" class="topo-edge" />
+              <line x1="160" y1="52" x2="260" y2="155" class="topo-edge" />
+              <!-- Hub node -->
+              <rect x="110" y="28" width="100" height="36" rx="8" class="topo-node topo-hub" />
+              <text x="160" y="44" class="topo-label topo-label-hub">Chief of Staff</text>
+              <text x="160" y="57" class="topo-sublabel">Orchestrator</text>
+              <!-- Spoke nodes -->
+              <rect x="14" y="140" width="92" height="36" rx="8" class="topo-node" />
+              <text x="60" y="156" class="topo-label">Inbox Mgr</text>
+              <text x="60" y="169" class="topo-sublabel">Every 5min</text>
+
+              <rect x="78" y="158" width="84" height="36" rx="8" class="topo-node" />
+              <text x="120" y="174" class="topo-label">Research</text>
+              <text x="120" y="187" class="topo-sublabel">On demand</text>
+
+              <rect x="158" y="158" width="84" height="36" rx="8" class="topo-node" />
+              <text x="200" y="174" class="topo-label">Writer</text>
+              <text x="200" y="187" class="topo-sublabel">8am + demand</text>
+
+              <rect x="214" y="140" width="92" height="36" rx="8" class="topo-node" />
+              <text x="260" y="156" class="topo-label">Briefing</text>
+              <text x="260" y="169" class="topo-sublabel">7am daily</text>
+            </svg>
+          </div>
+
+          <div class="diptych-stats">
+            <span>5 agents</span>
+            <span class="diptych-stat-sep"></span>
+            <span>Anthropic + Google AI</span>
+            <span class="diptych-stat-sep"></span>
+            <span>4 cron jobs</span>
+          </div>
+
+          <div class="diptych-install">
             <div class="terminal terminal-sm">
               <div class="terminal-body">
                 <div class="terminal-line">
@@ -227,80 +237,84 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
           </div>
-          <div class="install-mode">
-            <span class="cli-path-label">Non-interactive — pre-set everything</span>
+
+          <a href="https://tide.openreef.ai/formations/daily-ops" class="diptych-link">View on Tide &rarr;</a>
+        </div>
+
+        <!-- reef-forge -->
+        <div class="diptych-card diptych-coral">
+          <div class="diptych-header">
+            <div class="diptych-meta">
+              <span class="badge badge-coral">shoal</span>
+              <span class="diptych-version">v0.2.0</span>
+            </div>
+            <h3 class="diptych-name">reef-forge</h3>
+            <p class="diptych-tagline">The formation that builds formations</p>
+          </div>
+
+          <p class="diptych-desc">
+            Describe the agent team you need. The Architect coordinates four specialists
+            through a structured pipeline: research, SOUL writing, scaffolding, and
+            adversarial QA on a different vendor model for cognitive diversity.
+          </p>
+
+          <!-- Pipeline SVG topology -->
+          <div class="diptych-topology">
+            <svg viewBox="0 0 320 200" class="topo-svg" aria-label="reef-forge pipeline topology">
+              <!-- Pipeline flow arrows -->
+              <line x1="160" y1="48" x2="160" y2="68" class="topo-edge topo-edge-coral" />
+              <line x1="160" y1="68" x2="80" y2="92" class="topo-edge topo-edge-coral" />
+              <line x1="160" y1="68" x2="240" y2="92" class="topo-edge topo-edge-coral" />
+              <line x1="80" y1="120" x2="80" y2="140" class="topo-edge topo-edge-coral" />
+              <line x1="240" y1="120" x2="240" y2="140" class="topo-edge topo-edge-coral" />
+              <line x1="80" y1="168" x2="160" y2="180" class="topo-edge topo-edge-coral" />
+              <line x1="240" y1="168" x2="160" y2="180" class="topo-edge topo-edge-coral" />
+              <!-- Architect (top) -->
+              <rect x="110" y="20" width="100" height="32" rx="8" class="topo-node topo-hub-coral" />
+              <text x="160" y="36" class="topo-label topo-label-hub">Architect</text>
+              <text x="160" y="48" class="topo-sublabel">Coordinator</text>
+              <!-- Left branch -->
+              <rect x="34" y="92" width="92" height="32" rx="8" class="topo-node" />
+              <text x="80" y="108" class="topo-label">Researcher</text>
+              <text x="80" y="118" class="topo-sublabel">Domain research</text>
+
+              <rect x="34" y="140" width="92" height="32" rx="8" class="topo-node" />
+              <text x="80" y="156" class="topo-label">Soul Writer</text>
+              <text x="80" y="166" class="topo-sublabel">SOUL.md files</text>
+              <!-- Right branch -->
+              <rect x="194" y="92" width="92" height="32" rx="8" class="topo-node" />
+              <text x="240" y="108" class="topo-label">Builder</text>
+              <text x="240" y="118" class="topo-sublabel">Scaffolding</text>
+
+              <rect x="194" y="140" width="92" height="32" rx="8" class="topo-node topo-node-alt" />
+              <text x="240" y="156" class="topo-label topo-label-alt">QA</text>
+              <text x="240" y="166" class="topo-sublabel">OpenAI · adversarial</text>
+              <!-- Output -->
+              <rect x="115" y="180" width="90" height="16" rx="4" class="topo-output" />
+              <text x="160" y="192" class="topo-output-label">.reef.tar.gz</text>
+            </svg>
+          </div>
+
+          <div class="diptych-stats">
+            <span>5 agents</span>
+            <span class="diptych-stat-sep"></span>
+            <span>Anthropic + OpenAI</span>
+            <span class="diptych-stat-sep"></span>
+            <span>Multi-vendor</span>
+          </div>
+
+          <div class="diptych-install">
             <div class="terminal terminal-sm">
               <div class="terminal-body">
                 <div class="terminal-line">
                   <span class="terminal-prompt">$</span>
-                  <span class="terminal-cmd">reef install daily-ops \</span>
-                </div>
-                <div class="terminal-line">
-                  <span class="terminal-cmd">    --set USER_NAME="Ada" \</span>
-                </div>
-                <div class="terminal-line">
-                  <span class="terminal-cmd">    --set BUSINESS_NAME="Lovelace Labs" \</span>
-                </div>
-                <div class="terminal-line">
-                  <span class="terminal-cmd">    --set INTERACTION_CHANNEL=slack:#ops --yes</span>
+                  <span class="terminal-cmd">reef install reef-forge</span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- reef-forge -->
-      <div class="formation-showcase formation-showcase-coral">
-        <div class="formation-header">
-          <span class="badge badge-coral">shoal</span>
-          <h3>reef-forge</h3>
-          <span class="formation-version">v0.2.0</span>
-        </div>
-        <p class="formation-subtitle">The formation that builds formations — 5 agents, Anthropic + OpenAI</p>
-
-        <p class="formation-description">
-          Describe the agent team you need. reef-forge's Architect coordinates four specialists
-          through a structured workflow: research, SOUL writing, scaffolding, and adversarial QA.
-          The QA agent runs on a different vendor model (OpenAI) for cognitive diversity.
-          You get a production-ready formation.
-        </p>
-
-        <div class="forge-agents">
-          <div class="forge-agent">
-            <span class="forge-agent-role">Coordinator</span>
-            <span class="forge-agent-name">Architect</span>
-            <small>Your single point of contact. Decomposes requests, routes work, mediates disputes.</small>
-          </div>
-          <div class="forge-agent">
-            <span class="forge-agent-role">Researcher</span>
-            <span class="forge-agent-name">Researcher</span>
-            <small>Deep domain research. Clones ecosystem repos. Browses ClawHub for existing skills.</small>
-          </div>
-          <div class="forge-agent">
-            <span class="forge-agent-role">Writer</span>
-            <span class="forge-agent-name">Soul Writer</span>
-            <small>Writes SOUL.md and IDENTITY.md files. Authors knowledge and reference material.</small>
-          </div>
-          <div class="forge-agent">
-            <span class="forge-agent-role">Builder</span>
-            <span class="forge-agent-name">Builder</span>
-            <small>Scaffolds the complete file tree. Writes reef.json, README, .env.example.</small>
-          </div>
-          <div class="forge-agent forge-agent-alt">
-            <span class="forge-agent-role">QA · OpenAI</span>
-            <span class="forge-agent-name">QA</span>
-            <small>Adversarial reviewer on a different vendor model for cognitive diversity.</small>
-          </div>
-        </div>
-
-        <div class="terminal terminal-sm">
-          <div class="terminal-body">
-            <div class="terminal-line">
-              <span class="terminal-prompt">$</span>
-              <span class="terminal-cmd">reef install reef-forge --set INTERACTION_CHANNEL=slack:#forge</span>
-            </div>
-          </div>
+          <a href="https://tide.openreef.ai/formations/reef-forge" class="diptych-link diptych-link-coral">View on Tide &rarr;</a>
         </div>
       </div>
     </section>
@@ -1082,189 +1096,242 @@ import Layout from '../layouts/Layout.astro';
     line-height: 1;
   }
 
-  /* ── Formation Showcase ── */
-  .formation-showcase {
-    padding: 32px;
-    border-radius: 12px;
-    border: 1px solid transparent;
-    background:
-      linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
-      linear-gradient(135deg, var(--reef-bright), var(--cyan-bright), var(--coral-bright)) border-box;
-  }
-
-  .formation-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 4px;
-  }
-
-  .formation-header h3 {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
-
-  .formation-subtitle {
-    font-size: 0.875rem;
+  /* ── Section Subtitle ── */
+  .section-subtitle {
+    font-size: 0.9rem;
     color: var(--text-muted);
-    margin-bottom: 16px;
-  }
-
-  .formation-description {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
+    margin-top: -16px;
     margin-bottom: 28px;
-  }
-
-  .formation-version {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--text-muted);
-  }
-
-  .formation-showcase-coral {
-    margin-top: 24px;
-    background:
-      linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
-      linear-gradient(135deg, var(--coral-bright), var(--reef-bright)) border-box;
   }
 
   .badge-coral {
     background: var(--coral-bright);
   }
 
-  .install-modes {
+  /* ── Formations Diptych ── */
+  .formations-diptych {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 20px;
   }
 
-  .install-mode .terminal-sm {
+  .diptych-card {
+    border-radius: 14px;
+    border: 1px solid transparent;
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .diptych-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .diptych-blue {
+    background:
+      linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+      linear-gradient(160deg, var(--reef-bright), var(--cyan-bright)) border-box;
+  }
+
+  .diptych-blue:hover {
+    box-shadow: 0 12px 40px rgba(59, 125, 255, 0.15);
+  }
+
+  .diptych-coral {
+    background:
+      linear-gradient(var(--surface-card), var(--surface-card)) padding-box,
+      linear-gradient(160deg, var(--coral-bright), var(--reef-bright)) border-box;
+  }
+
+  .diptych-coral:hover {
+    box-shadow: 0 12px 40px rgba(255, 111, 97, 0.12);
+  }
+
+  .diptych-header {
+    margin-bottom: 16px;
+  }
+
+  .diptych-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .diptych-version {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+  }
+
+  .diptych-name {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .diptych-tagline {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .diptych-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  /* ── SVG Topology ── */
+  .diptych-topology {
+    background: var(--bg-deep);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 12px 8px 8px;
+    margin-bottom: 16px;
+  }
+
+  .topo-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .topo-edge {
+    stroke: var(--reef-bright);
+    stroke-width: 1.5;
+    stroke-dasharray: 5 3;
+    stroke-opacity: 0.35;
+    animation: topoFlow 2.5s linear infinite;
+  }
+
+  .topo-edge-coral {
+    stroke: var(--coral-bright);
+  }
+
+  @keyframes topoFlow {
+    to { stroke-dashoffset: -16; }
+  }
+
+  .topo-node {
+    fill: var(--bg-elevated);
+    stroke: var(--border-subtle);
+    stroke-width: 1;
+  }
+
+  .topo-hub {
+    stroke: var(--reef-bright);
+    stroke-width: 1.5;
+    fill: var(--bg-elevated);
+  }
+
+  .topo-hub-coral {
+    stroke: var(--coral-bright);
+    stroke-width: 1.5;
+    fill: var(--bg-elevated);
+  }
+
+  .topo-node-alt {
+    stroke: var(--coral-bright);
+    stroke-width: 1;
+    stroke-dasharray: 3 2;
+  }
+
+  .topo-label {
+    font-family: var(--font-display);
+    font-size: 8px;
+    font-weight: 700;
+    fill: var(--text-primary);
+    text-anchor: middle;
+    dominant-baseline: central;
+  }
+
+  .topo-label-hub {
+    fill: var(--reef-bright);
+  }
+
+  .topo-label-alt {
+    fill: var(--coral-bright);
+  }
+
+  .topo-sublabel {
+    font-family: var(--font-mono);
+    font-size: 6px;
+    fill: var(--text-muted);
+    text-anchor: middle;
+    dominant-baseline: central;
+  }
+
+  .topo-output {
+    fill: var(--bg-elevated);
+    stroke: var(--cyan-bright);
+    stroke-width: 1;
+    stroke-dasharray: 3 2;
+  }
+
+  .topo-output-label {
+    font-family: var(--font-mono);
+    font-size: 6.5px;
+    fill: var(--cyan-bright);
+    text-anchor: middle;
+    dominant-baseline: central;
+  }
+
+  /* ── Stats row ── */
+  .diptych-stats {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+
+  .diptych-stat-sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    opacity: 0.5;
+  }
+
+  /* ── Install + link ── */
+  .diptych-install {
+    margin-bottom: 12px;
+  }
+
+  .diptych-install .terminal-sm {
     margin: 0;
   }
 
-  /* ── Forge Agent List ── */
-  .forge-agents {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin-bottom: 24px;
-  }
-
-  .forge-agent {
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid var(--border-subtle);
-    background: var(--bg-elevated);
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .forge-agent-role {
+  .diptych-link {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.78rem;
     color: var(--reef-bright);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease;
+    margin-top: auto;
   }
 
-  .forge-agent-name {
-    font-family: var(--font-display);
-    font-size: 0.85rem;
-    font-weight: 700;
-  }
-
-  .forge-agent small {
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    line-height: 1.4;
-  }
-
-  .forge-agent-alt {
-    border-color: var(--coral-bright);
-  }
-
-  .forge-agent-alt .forge-agent-role {
-    color: var(--coral-bright);
-  }
-
-  /* ── Agent Topology ── */
-  .agent-topology {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    margin-bottom: 28px;
-  }
-
-  .agent-hub {
-    border-color: var(--reef-bright) !important;
-  }
-
-  .topology-connector {
-    width: 2px;
-    height: 20px;
-    background: linear-gradient(to bottom, var(--reef-bright), var(--cyan-bright));
-    animation: connectorPulse 2s ease-in-out infinite;
-  }
-
-  @keyframes connectorPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
-  }
-
-  .agent-spokes {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    width: 100%;
-    border-top: 2px solid transparent;
-    border-image: linear-gradient(90deg, var(--reef-bright), var(--cyan-bright)) 1;
-    padding-top: 16px;
-  }
-
-  .agent-node {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    padding: 14px 10px;
-    border-radius: 10px;
-    border: 1px solid var(--border-subtle);
-    background: var(--bg-elevated);
-    text-align: center;
-    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .agent-node:hover {
-    transform: translateY(-2px);
-    border-color: var(--reef-bright);
-    box-shadow: 0 4px 16px var(--shadow-reef);
-  }
-
-  .agent-icon {
-    font-size: 1.3rem;
-    margin-bottom: 2px;
-    color: var(--reef-bright);
-  }
-
-  .agent-hub .agent-icon {
+  .diptych-link:hover {
     color: var(--cyan-bright);
   }
 
-  .agent-node span {
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 700;
+  .diptych-link-coral {
+    color: var(--coral-bright);
   }
 
-  .agent-node small {
-    font-size: 0.7rem;
-    color: var(--text-muted);
+  .diptych-link-coral:hover {
+    color: var(--reef-bright);
   }
 
   /* ── Features Grid ── */
@@ -1332,13 +1399,6 @@ import Layout from '../layouts/Layout.astro';
     border-radius: 24px;
     pointer-events: none;
     z-index: -1;
-  }
-
-  @media (min-width: 641px) {
-    .formation-showcase {
-      margin-left: -40px;
-      margin-right: -40px;
-    }
   }
 
   /* ── Author Block ── */
@@ -1451,16 +1511,8 @@ import Layout from '../layouts/Layout.astro';
       grid-template-columns: 1fr;
     }
 
-    .agent-spokes {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .install-modes {
+    .formations-diptych {
       grid-template-columns: 1fr;
-    }
-
-    .forge-agents {
-      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -1476,10 +1528,6 @@ import Layout from '../layouts/Layout.astro';
     .cta-row {
       flex-direction: column;
       align-items: center;
-    }
-
-    .forge-agents {
-      grid-template-columns: 1fr;
     }
 
     .terminal {
