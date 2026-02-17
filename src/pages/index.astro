@@ -77,48 +77,58 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- ═══ Quick Start ═══ -->
-    <section class="section" id="quick-start">
-      <h2 class="section-title">Quick Start</h2>
-
-      <div class="terminal terminal-reveal">
-        <div class="terminal-header">
-          <span class="terminal-label">terminal</span>
-          <button class="terminal-copy-btn" aria-label="Copy terminal commands">Copy</button>
+    <section class="section cli-section" id="quick-start">
+      <p class="cli-connector">Or, from your terminal:</p>
+      <div class="cli-prereq">
+        <span class="terminal-prompt">$</span>
+        <span class="terminal-cmd">npm i -g @openreef/cli</span>
+      </div>
+      <div class="cli-paths">
+        <div class="cli-path">
+          <span class="cli-path-label">Use a formation</span>
+          <div class="terminal terminal-reveal">
+            <div class="terminal-header">
+              <span class="terminal-label">terminal</span>
+              <button class="terminal-copy-btn" aria-label="Copy terminal commands">Copy</button>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.1s">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">reef search "daily operations"</span>
+              </div>
+              <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.3s">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">reef install daily-ops</span>
+              </div>
+              <div class="terminal-output terminal-reveal-line" style="transition-delay: 0.55s">
+                <span class="terminal-success">✓ 5 agents deployed and running</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="terminal-body">
-          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.1s">
-            <span class="terminal-comment"># Install the CLI</span>
-          </div>
-          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.2s">
-            <span class="terminal-prompt">$</span>
-            <span class="terminal-cmd">npm install -g @openreef/cli</span>
-          </div>
-          <div class="terminal-spacer"></div>
-          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.35s">
-            <span class="terminal-comment"># Scaffold a new formation</span>
-          </div>
-          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.45s">
-            <span class="terminal-prompt">$</span>
-            <span class="terminal-cmd">reef init my-team</span>
-          </div>
-          <div class="terminal-spacer"></div>
-          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.6s">
-            <span class="terminal-comment"># Validate and deploy</span>
-          </div>
-          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.7s">
-            <span class="terminal-prompt">$</span>
-            <span class="terminal-cmd">reef validate ./my-team</span>
-          </div>
-          <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.8s">
-            <span class="terminal-prompt">$</span>
-            <span class="terminal-cmd">reef install ./my-team</span>
-          </div>
-          <div class="terminal-output terminal-reveal-line" style="transition-delay: 0.95s">
-            <span class="terminal-success">✓ Formation "my-team" deployed successfully</span>
+        <div class="cli-path">
+          <span class="cli-path-label">Build your own</span>
+          <div class="terminal terminal-reveal">
+            <div class="terminal-header">
+              <span class="terminal-label">terminal</span>
+              <button class="terminal-copy-btn" aria-label="Copy terminal commands">Copy</button>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.15s">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">reef init my-team --type shoal</span>
+              </div>
+              <div class="terminal-line terminal-reveal-line" style="transition-delay: 0.35s">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-cmd">reef install ./my-team</span>
+              </div>
+              <div class="terminal-output terminal-reveal-line" style="transition-delay: 0.6s">
+                <span class="terminal-success">✓ Formation "my-team" deployed</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- ═══ What It Does ═══ -->
@@ -716,6 +726,56 @@ import Layout from '../layouts/Layout.astro';
     font-style: italic;
   }
 
+  /* ── CLI Paths ── */
+  .cli-section {
+    margin-top: -24px;
+  }
+
+  .cli-connector {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    letter-spacing: 0.01em;
+  }
+
+  .cli-prereq {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.84rem;
+    margin-bottom: 24px;
+    padding: 10px 20px;
+    background: var(--surface-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    display: inline-flex;
+    gap: 8px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cli-paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .cli-path-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .cli-paths .terminal {
+    max-width: 100%;
+    margin: 0;
+  }
+
   /* ── Terminal ── */
   .terminal {
     background: var(--surface-card);
@@ -1209,6 +1269,10 @@ import Layout from '../layouts/Layout.astro';
 
     .hero-cta-row {
       justify-content: center;
+    }
+
+    .cli-paths {
+      grid-template-columns: 1fr;
     }
   }
 
