@@ -34,7 +34,7 @@ Deploy a formation using the `reef` CLI. Install is unauthenticated — no login
 ## Command
 
 ```
-reef install <source> [--set KEY=VALUE ...] [--yes] [--no-env] [--namespace <ns>] [--force] [--merge] [--dry-run] [--registry <url>]
+reef install <source> [--set KEY=VALUE ...] [--yes] [--no-env] [--namespace <ns>] [--force] [--merge] [--dry-run] [--registry <url>] [--skip-compat]
 ```
 
 | Flag | Default | Description |
@@ -47,6 +47,7 @@ reef install <source> [--set KEY=VALUE ...] [--yes] [--no-env] [--namespace <ns>
 | `--merge` | `false` | Update files only, preserve agent config |
 | `--dry-run` | `false` | Preview changes without applying |
 | `--registry` | `https://tide.openreef.ai` | Registry URL |
+| `--skip-compat` | `false` | Skip `compatibility.openclaw` version check |
 
 ---
 
@@ -58,19 +59,60 @@ Formations declare variables in `reef.json`. During install:
 2. **`.env` file** — if a `.env` file exists in the current directory, it is loaded automatically (skip with `--no-env`).
 3. **Interactive prompts** — any remaining required variables with no defaults are prompted interactively (skipped with `--yes`).
 
-Variables with unresolved `{{VARIABLE}}` tokens in bindings are skipped with a warning.
+Variables with unresolved `{{VARIABLE}}` tokens in match object fields are skipped with a warning.
 
 ---
 
-## Channel Format
+## Binding Format
 
-Interaction channels use the format `<type>:<scope>`:
+Interaction bindings use rich match objects instead of simple strings. The `channel` field is a channel token (e.g. `slack`, `telegram`, `discord`, `teams`). The optional `peer` field specifies the target scope.
 
-| Example | Meaning |
-|---------|---------|
-| `slack:#ops` | Slack channel `#ops` |
-| `telegram:12345` | Telegram chat ID `12345` |
-| `teams:ops-room` | Microsoft Teams channel `ops-room` |
+```json
+{
+  "match": {
+    "channel": "slack",
+    "peer": { "kind": "channel", "id": "#ops" }
+  },
+  "agent": "triage"
+}
+```
+
+### Match Fields
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `channel` | Yes | Channel token: `slack`, `telegram`, `discord`, `teams` |
+| `peer` | No | Target scope with `kind` and `id` (e.g. `{ "kind": "channel", "id": "#ops" }`) |
+| `accountId` | No | Restrict to a specific account |
+| `guildId` | No | Restrict to a specific guild (Discord) |
+| `teamId` | No | Restrict to a specific team (Teams) |
+| `roles` | No | Restrict to specific roles |
+
+### Variable Interpolation
+
+Formations use separate variables for each match field:
+
+| Variable | Resolves to |
+|----------|-------------|
+| `{{INTERACTION_CHANNEL}}` | Channel token (e.g. `slack`) |
+| `{{INTERACTION_PEER_KIND}}` | Peer kind (e.g. `channel`, `user`) — optional |
+| `{{INTERACTION_PEER_ID}}` | Peer ID (e.g. `#ops`, `12345`) — optional |
+
+Example binding in `reef.json` using variables:
+
+```json
+{
+  "match": {
+    "channel": "{{INTERACTION_CHANNEL}}",
+    "peer": { "kind": "{{INTERACTION_PEER_KIND}}", "id": "{{INTERACTION_PEER_ID}}" }
+  },
+  "agent": "triage"
+}
+```
+
+### Compatibility Check
+
+If the manifest declares `compatibility.openclaw`, the install command verifies that the running OpenClaw version satisfies the declared range. If it does not, install hard-fails with an error. Use `--skip-compat` to override this check.
 
 ---
 

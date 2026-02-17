@@ -80,6 +80,6 @@ Before transitioning to `./reef-forge.md`, collect the following from the user:
 
 1. **Problem statement** — what should the formation do?
 2. **Approximate scope** — how many agents (roughly)? What does each do?
-3. **Interaction channel** — how will the user communicate with the formation? (format: `<type>:<scope>`)
+3. **Interaction channel** — how will the user communicate with the formation? (channel token, e.g. slack, telegram, discord)
 
 Then transition to `./reef-forge.md` with this context.
