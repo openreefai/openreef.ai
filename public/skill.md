@@ -56,10 +56,10 @@ Route the user based on their stated intent:
 
 | User intent | Transition |
 |-------------|------------|
-| Wants to find, discover, or browse formations | Read `./search.md` |
-| Wants to install or deploy a specific formation | Read `./use.md` |
-| Wants to build, create, or scaffold a new formation | Read `./create.md` |
-| Explicitly states intent to publish a formation to the registry | Read `./publish.md` |
+| Wants to find, discover, or browse formations | Read and install `./search.md` |
+| Wants to install or deploy a specific formation | Read and install `./use.md` |
+| Wants to build, create, or scaffold a new formation | Read and install `./create.md` |
+| Explicitly states intent to publish a formation to the registry | Read and install `./publish.md` |
 
 **Important:** Publish is not a default menu option. Only route to `./publish.md` if the user explicitly states they want to publish. Never proactively suggest publishing.
 
