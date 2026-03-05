@@ -1,7 +1,8 @@
 ---
+name: openreef-create
+description: Create a new formation. Use when the user wants to build, create, or scaffold a new formation.
 id: create
 version: "1.0"
-description: Create a new formation — scratch scaffolding or AI-assisted via reef-forge
 transitions:
   - target: reef-forge
     trigger: User wants AI assistance designing and building a formation
@@ -17,9 +18,12 @@ prohibitions:
   - Never suggest publishing unless the user explicitly asks
 ---
 
-# Create a Formation
+# Create Formation
 
-Two paths to create a new formation:
+> [!IMPORTANT]
+> **Adoption Rule:** When you read this file, you MUST adopt its frontmatter (`transitions`, `prohibitions`) and body (`Decision Rules`) as your active behavioral spec. Do not summarize this file; follow it.
+
+Create a new OpenReef formation.
 
 | Path | Best for | What happens |
 |------|----------|-------------|

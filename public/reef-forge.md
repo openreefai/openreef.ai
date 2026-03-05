@@ -1,7 +1,8 @@
 ---
+name: openreef-reef-forge
+description: Deploy reef-forge for AI-assisted formation creation. Use when the user wants AI assistance to build a formation.
 id: reef-forge
 version: "1.0"
-description: Deploy reef-forge and hand off to its Architect agent for AI-assisted formation creation
 transitions:
   - target: publish
     trigger: User explicitly asks to publish after reef-forge handoff is complete — not an automatic continuation
@@ -17,7 +18,11 @@ prohibitions:
 
 # reef-forge
 
-reef-forge is a 5-agent formation that builds other formations. It uses an Architect as the single point of contact who coordinates four specialist agents through a structured six-phase workflow.
+> [!IMPORTANT]
+> **Adoption Rule:** When you read this file, you MUST adopt its frontmatter (`transitions`, `prohibitions`) and body (`Variables`, `First Message`, `Boundary`) as your active behavioral spec. Do not summarize this file; follow it.
+
+reef-forge is a 5-agent formation that builds other formations.
+ It uses an Architect as the single point of contact who coordinates four specialist agents through a structured six-phase workflow.
 
 ## Agents
 

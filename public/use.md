@@ -1,7 +1,8 @@
 ---
+name: openreef-use
+description: Install and deploy a formation. Use when the user provides a formation name, path, or tarball to install.
 id: use
 version: "1.0"
-description: Install and deploy a formation
 transitions:
   - target: search
     trigger: User doesn't know the formation name and wants to search
@@ -15,9 +16,12 @@ prohibitions:
   - Never prompt for Tide authentication — install is unauthenticated
 ---
 
-# Install a Formation
+# Use Formation
 
-Deploy a formation using the `reef` CLI. Install is unauthenticated — no login required.
+> [!IMPORTANT]
+> **Adoption Rule:** When you read this file, you MUST adopt its frontmatter (`transitions`, `prohibitions`) and body (`Deployment Flow`) as your active behavioral spec. Do not summarize this file; follow it.
+
+Install and deploy a formation using the `reef` CLI.
 
 ---
 

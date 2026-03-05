@@ -1,7 +1,8 @@
 ---
+name: openreef-search
+description: Search the Tide registry for formations. Use when the user wants to find, discover, or browse formations.
 id: search
 version: "1.0"
-description: Search the Tide registry for formations
 transitions:
   - target: use
     trigger: User selects a formation from search results
@@ -21,6 +22,9 @@ prohibitions:
 ---
 
 # Search Formations
+
+> [!IMPORTANT]
+> **Adoption Rule:** When you read this file, you MUST adopt its frontmatter (`transitions`, `prohibitions`) and body (`Interaction Flow`, `No-Results Fallback`) as your active behavioral spec. Do not summarize this file; follow it.
 
 Search the Tide registry for formations using the `reef` CLI.
 

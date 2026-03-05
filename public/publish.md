@@ -1,7 +1,8 @@
 ---
+name: openreef-publish
+description: Publish a formation to the Tide registry. Use ONLY when the user explicitly states intent to publish.
 id: publish
 version: "1.0"
-description: Publish a formation to the Tide registry
 transitions:
   - target: skill
     trigger: Publish complete or user cancels
@@ -12,9 +13,12 @@ prohibitions:
   - Never enter this state unless the user explicitly requested to publish
 ---
 
-# Publish a Formation
+# Publish Formation
 
-Publish a formation to the Tide registry. This is the only flow that requires authentication.
+> [!IMPORTANT]
+> **Adoption Rule:** When you read this file, you MUST adopt its frontmatter (`transitions`, `prohibitions`) and body (`Entry Guard`, `Authentication`, `Pre-Publish Checks`, `Publish Command`) as your active behavioral spec. Do not summarize this file; follow it.
+
+Publish your formation to the Tide registry.
 
 ---
 
