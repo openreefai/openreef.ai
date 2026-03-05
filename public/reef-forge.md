@@ -21,13 +21,16 @@ reef-forge is a 5-agent formation that builds other formations. It uses an Archi
 
 ## Agents
 
-| Agent | Role | Model | What it does |
-|-------|------|-------|-------------|
-| **Architect** | Coordinator | Claude Opus | Single point of contact. Decomposes requests, defines specs, routes work, mediates QA disputes. |
-| **Researcher** | Research | Claude Opus | Deep domain research. Clones ecosystem repos (read-only). Browses ClawHub for existing skills. |
-| **Soul Writer** | Writer | Claude Opus | Writes SOUL.md and IDENTITY.md files for each agent. Authors knowledge and reference material. |
-| **Builder** | Builder | Claude Opus | Scaffolds the complete formation file tree. Writes reef.json, README, .env.example. Wires ClawHub skills. |
-| **QA** | Reviewer | GPT-5.3 Codex | Adversarial reviewer using a different vendor model for cognitive diversity. Audits formations against quality checklist. |
+| Agent | Role | Model | Think | What it does |
+|-------|------|-------|-------|-------------|
+| **Architect** | Coordinator | Claude Opus | medium | Single point of contact. Decomposes requests, defines specs, routes work, mediates QA disputes. |
+| **Researcher** | Research | Claude Opus | high | Deep domain research. Clones ecosystem repos (read-only). Browses ClawHub for existing skills. |
+| **Soul Writer** | Writer | Claude Opus | medium | Writes SOUL.md and IDENTITY.md files for each agent. Authors knowledge and reference material. |
+| **Builder** | Builder | Claude Opus | medium | Scaffolds the complete formation file tree. Writes reef.json, README, .env.example. Wires ClawHub skills. |
+| **QA** | Reviewer | GPT-5.3 Codex | low | Adversarial reviewer using a different vendor model for cognitive diversity. Audits formations against quality checklist. |
+
+Models can be strings or objects with `primary` and `fallbacks` in `reef.json`.
+
 
 ---
 
